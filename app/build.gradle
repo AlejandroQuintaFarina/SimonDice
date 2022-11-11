@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.iker.simon_dice_iker'
+    namespace 'com.alejandro.simon_dice_alejandro'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.iker.simon_dice_iker"
+        applicationId "com.alejandro.simon_dice_alejandro"
         minSdk 26
         targetSdk 32
         versionCode 1

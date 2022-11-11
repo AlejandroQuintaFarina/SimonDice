@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">SimonDice</string>
+    <string name="app_name">Simon dice</string>
+    <string name="btn_azul"></string>
+    <string name="btn_rojo"></string>
+    <string name="btn_verde"></string>
+    <string name="btn_amarillo"></string>
+    <string name="score">Score:</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="nombreJugador"></string>
+    <string name="record">Record:</string>
 </resources>
