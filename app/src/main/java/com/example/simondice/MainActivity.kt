@@ -60,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         colorRandom()
     }
 
+//Método para resetear el juego y tu marcador
+
+    private fun reset(){
+        for(i in 0..(ronda-1)){
+            numbersArray[i]=0
+        }
+        score.text = "Score: "
+    }
 
 }
 
