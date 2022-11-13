@@ -198,5 +198,25 @@ class MainActivity : AppCompatActivity() {
         btnAmarillo.isClickable == boolean
 
     }
+
+
+    private fun saveRecord(){
+
+        if(puntuacion>puntuacion2){
+            puntuacion2 = puntuacion
+            val sharedPreferences = getSharedPreferences("record", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.apply(){
+                putInt("INT_KEY",puntuacion2)
+            }.apply()
+        }
+        Toast.makeText(this,"Se ha establecido un nuevo record!",Toast.LENGTH_LONG)
+    }
+
+    private fun loadRecord(){
+        val sharedPreferences = getSharedPreferences("record", Context.MODE_PRIVATE)
+        val savedRecord = sharedPreferences.getInt("INT_KEY",0)
+        record.text = "Record: " + savedRecord
+    }
 }
 
