@@ -85,5 +85,108 @@ class MainActivity : AppCompatActivity() {
 
         jobColores()
     }
+
+    private fun jobColores(){
+        val jobColores = GlobalScope.launch(Dispatchers.Main) {
+
+            for (i in 0..ronda){
+                when (numbersArray[i]){
+                    1-> {
+                        btnRojo.setBackgroundColor(resources.getColor(R.color.red2))
+                        delay(750)
+                        btnRojo.setBackgroundColor(resources.getColor(R.color.red))
+                        delay(100)
+                    }
+                    2->{
+                        btnAzul.setBackgroundColor(resources.getColor(R.color.blue2))
+                        delay(750)
+                        btnAzul.setBackgroundColor(resources.getColor(R.color.blue))
+                        delay(100)
+                    }
+                    3->{
+                        btnVerde.setBackgroundColor(resources.getColor(R.color.green2))
+                        delay(750)
+                        btnVerde.setBackgroundColor(resources.getColor(R.color.green))
+                        delay(100)
+                    }
+                    4->{
+                        btnAmarillo.setBackgroundColor(resources.getColor(R.color.yellow2))
+                        delay(750)
+                        btnAmarillo.setBackgroundColor(resources.getColor(R.color.yellow))
+                        delay(100)
+                    }
+                }
+            }
+            booleanBotones=true
+            activarBotones(booleanBotones)
+        }
+        jobColores
+    }
+
+
+
+    private fun enterNumbers(numbersArray: IntArray){
+        btnRojo.setOnClickListener(){
+
+            if(booleanBotones){
+                Log.d("botónpresionado:","1")
+                numeroIntroducido=1
+                comprobante()
+            }
+        }
+        btnAzul.setOnClickListener(){
+
+            if(booleanBotones){
+                Log.d("botónpresionado:","2")
+                numeroIntroducido=2
+                comprobante()
+            }
+
+        }
+        btnVerde.setOnClickListener(){
+
+            if(booleanBotones){
+                Log.d("botónpresionado:","3")
+                numeroIntroducido=3
+                comprobante()
+            }
+
+        }
+        btnAmarillo.setOnClickListener(){
+
+            if(booleanBotones){
+                Log.d("botónpresionado:","4")
+                numeroIntroducido=4
+                comprobante()
+            }
+        }
+    }
+
+        //comprueba si la secuencia introducida por el jugador es la correcta, si falla le sale un mensaje de derrota y la puntuacion obtenida
+
+    private fun comprobante(){
+        if(numeroIntroducido == numbersArray[contador] && contador != ronda){
+            contador+=1
+
+            if(contador==ronda){
+                comprobante()
+            }
+        }else if(contador == ronda || numeroIntroducido == numbersArray[contador]){
+            ronda+=1
+            puntuacion+=10
+            score.text = "Score: " + puntuacion
+            contador=0
+            colorRandom()
+        }else{
+            Toast.makeText(this, "Has hecho " + puntuacion + " puntos!",Toast.LENGTH_LONG).show()
+            reset()
+            saveRecord()
+            loadRecord()
+            btnIniciar.setVisibility(View.VISIBLE)
+            puntuacion=0
+            ronda=1
+            contador=0
+        }
+    }
 }
 
