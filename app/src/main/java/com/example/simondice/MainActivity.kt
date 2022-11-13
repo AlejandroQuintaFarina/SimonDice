@@ -188,5 +188,15 @@ class MainActivity : AppCompatActivity() {
             contador=0
         }
     }
+
+    //Metodo para activar los botones
+
+    fun activarBotones(boolean: Boolean){
+        btnRojo.isClickable == boolean
+        btnAzul.isClickable == boolean
+        btnVerde.isClickable == boolean
+        btnAmarillo.isClickable == boolean
+
+    }
 }
 
