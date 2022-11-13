@@ -69,5 +69,21 @@ class MainActivity : AppCompatActivity() {
         score.text = "Score: "
     }
 
+    //Método para los colores
+
+    private fun colorRandom(){
+        booleanBotones=false
+        activarBotones(booleanBotones)
+
+        for(i in 0..ronda){
+            val randomValues = Random().nextInt(4) +1
+            numbersArray.set((ronda-1),randomValues)
+        }
+        enterNumbers(numbersArray)
+        Log.d("array:", Arrays.toString(numbersArray))
+
+
+        jobColores()
+    }
 }
 
